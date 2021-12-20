@@ -1,6 +1,13 @@
 import { Container } from "./styles";
+import { useEffect } from "react";
+import { api } from '../../services/api'
 
 export function TransactionTable(){
+    useEffect(() => {
+        api.get('transactions')
+        .then(data => console.log("Sua API retornou " + data))
+    }, []);
+
     return(
         <Container>
             <table>
@@ -9,7 +16,7 @@ export function TransactionTable(){
                         <th>Título</th>
                         <th>Valor</th>
                         <th>Categoria</th>
-                        <th>Data</th>
+                        <th>Data</th> 
                     </tr>
                 </thead>
                 <tbody>
