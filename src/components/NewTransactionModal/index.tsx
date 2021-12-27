@@ -20,11 +20,10 @@ export function NewTransactionModal( {isOpen, onRequestClose}: NewTransactionMod
 
     function handleCreateNewTransaction(event : FormEvent){
         event.preventDefault();
+
+        const data = {title, category, value, type};
+        api.post('/transactions', data)
     }
-
-    const data = {title, category, value, type};
-
-    api.post('/transactions', data)
 
     return(
         <Modal 
